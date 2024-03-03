@@ -1,0 +1,948 @@
+/* SETUP */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  /* scroll-behavior: smooth; */
+}
+main{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+  position: relative;
+  overflow-x: hidden;
+}
+@media screen and (min-width:476px) {
+  main{
+  max-width: 476px;
+  }
+}
+body{
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+.desktop{
+  width: 100%;
+  height: 100vh;
+  background-image: url(./img/ls-1.png);
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+.desktop::before{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+}
+button.music{
+  display: flex;
+  position: fixed;
+  bottom: 32px;
+  right: 20px;
+  z-index: 100;
+  height: 64px;
+  width: 64px;
+  background-color: transparent;
+  animation: rotating infinite 8s linear;
+}
+@keyframes rotating {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+button.music img{
+  width: 100%;
+}
+/* SETUP */
+/* FONT */
+@font-face {
+  font-family: montserrat;
+  src: url(fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: cherolina;
+  src: url(fonts/Cherolina/Cherolina.otf);
+}
+@font-face {
+  font-family: newyork;
+  src: url(fonts/NewYork/NewYork.otf);
+}
+/* FONT */
+/* NAV */
+nav{
+  width: 100%;
+  background-color: rgba(245, 245, 245, 0.4);
+  backdrop-filter: blur(40px);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  height: 72px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  opacity: 0;
+}
+nav .container{
+  padding: 12px 32px;
+}
+/* NAV */
+/* welcome section */
+.welcome-section{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.welcome-section .background-welcome-section{
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.welcome-section .background-welcome-section img{
+  height: 100%;
+}
+.welcome-section .background-welcome-section .cover-background-welcome{
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: .6;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.welcome-section .content-welcome-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: absolute;
+  left: 32px;
+  bottom: 96px;
+}
+p.space-text{
+  font-family: montserrat;
+  color: white;
+  opacity: .8;
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+p.handwriting{
+  font-family: cherolina;
+}
+.welcome-section .content-welcome-section p.handwriting{
+  color: white;
+  font-size: 52px;
+  margin: 16px 0;
+}
+.welcome-section .content-welcome-section button{
+  padding: 8px 24px;
+  background-color: white;
+  margin: 16px 0;
+}
+.welcome-section .content-welcome-section button p.space-text{
+  color: #181818;
+  opacity: 1;
+}
+/* welcome section */
+/* INTRODUCE SECTION */
+.introduce-section{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(img/theme_background.png);
+  background-size: 100%;
+}
+.introduce-section .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 40px 32px;
+}
+.introduce-section .container .head-introduce-section{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.introduce-section .container .head-introduce-section .flower-introduce{
+  position: relative;
+  width: 72px;
+  z-index: 2;
+}
+.introduce-section .container .head-introduce-section .back-flower-introduce{
+  position: absolute;
+  z-index: 1;
+}
+.introduce-section .container .head-introduce-section .cover-head-introduce-text{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  z-index: 3;
+}
+p.newyork{
+  font-family: newyork;
+}
+p.normal-text{
+  font-family: montserrat;
+  color: #181818;
+  opacity: .8;
+  font-size: 12px;
+}
+.introduce-section .container .head-introduce-section p.newyork{
+  font-size: 56px;
+  color: #181818;
+}
+.introduce-section .container .head-introduce-section .cover-head-introduce-text p.head-text-left{
+  margin-bottom: 20px;
+}
+.introduce-section .container .head-introduce-section .cover-head-introduce-text p.head-text-right{
+  margin-top: 20px;
+}
+.introduce-section .container .body-introduce-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.introduce-section .container .body-introduce-section p{
+  text-align: center;
+}
+/* INTRODUCE SECTION */
+/* BRIDENGROOM SECTION */
+.bridengroom-section{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  padding: 32px 40px;
+  background-image: url(img/background_bng.png);
+  background-size: cover;
+  background-position: center;
+}
+.bridengroom-section .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.heading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.heading p.newyork{
+  color: white;
+  font-size: 52px;
+  text-align: center;
+}
+.bridengroom-section .container .body-bridengroom-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+}
+.bridengroom-section .container .body-bridengroom-section p{
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+  text-align: center;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 32px;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bngimage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bngimage .image-main{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bngimage .image-main img{
+  width: 220px;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bngimage .image-main .front{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bngimage .image-main .back{
+  position: relative;
+  z-index: 1;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bngimage .image-elips{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 2;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bngimage .image-elips .elips{
+  width: 345px;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bngimage .image-elips .star-1{
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bngimage .image-elips .star-2{
+  position: absolute;
+  top: 52px;
+  right: 0;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail{
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail .cover-text{
+  overflow-y: hidden;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail .cover-text p{
+  margin-bottom: 0;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail .cover-text p.newyork{
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail .cover-text p.normal-text{
+  margin-bottom: 4px;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail .line{
+  width: 80%;
+  height: 1px;
+  background-color: white;
+  opacity: .5;
+  margin-bottom: 12px;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail .social-media{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-top: 12px;
+}
+.bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail .social-media a img{
+  width: 24px;
+}
+/* BRIDENGROOM SECTION */
+.double-section{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-repeat: repeat-y;
+  background-image: url(img/theme_background.png);
+}
+.double-section .container{
+  padding: 40px 24px;
+}
+/* TIMELINE */
+.timeline-section{
+  background-image: url(img/background-tl.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+.heading p.handwriting{
+  color: #ffd789;
+  font-size: 42px;
+  position: absolute;
+  top: 32px;
+}
+.timeline-section .container .body{
+  margin-top: 40px;
+}
+.timeline-section .container .body p{
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  margin-bottom: 8px;
+}
+.timeline-section .container .body .item-timeline{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+.timeline-section .container .body .item-timeline img{
+  width: 96px;
+  margin: 0px 0 24px 0;
+}
+.timeline-section .container .body .item-timeline .handwriting{
+  font-size: 58px;
+}
+.timeline-section .container .event-location{
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.timeline-section .container .event-location button{
+  margin-top: 16px;
+  padding: 10px 28px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.timeline-section .container .event-location button p{
+  color: #181818;
+  margin-bottom: 0;
+}
+/* TIMELINE */
+/* COUNTDOWN */
+.countdown-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(img/background-cd.png);
+  margin-top: 32px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+}
+.countdown-section .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.countdown-section .container p.handwriting{
+  color: white;
+  font-size: 58px;
+}
+.countdown-section .container .line{
+  height: 1px;
+  width: 80%;
+  background-color: rgba(245, 245, 245, 0.5);
+  margin: 12px 0;
+}
+.countdown-section .container .box-countdown{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 12px;
+}
+.countdown-section .container .box-countdown .item-countdown{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(224, 224, 224, 0.1);
+  flex: 1;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(245, 245, 245, 0.527);
+}
+.countdown-section .container .box-countdown .item-countdown p{
+  color: rgba(255, 255, 255, 0.8);
+}
+.countdown-section .container .box-countdown .item-countdown p.newyork{
+  font-size: 18px;
+}
+/* COUNTDOWN */
+/* GALLERY */
+.gallery-section{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.gallery-section .video{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  /* margin-bottom: 32px; */
+}
+.gallery-section .video iframe{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+.gallery-section .container .heading{
+  margin-bottom: 52px;
+}
+.gallery-section .container .heading p.newyork{
+  color: #181818;
+}
+.gallery-section .container .heading p.handwriting{
+  color: #777777;
+}
+.gallery-section .container .box-gallery{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 4px;
+}
+.gallery-section .container .box-gallery .cover-box-gallery{
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  width: 100%;
+}
+.gallery-section .container .box-gallery .left-side-gallery{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px;
+}
+.gallery-section .container .box-gallery .right-side-gallery{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px;
+}
+.gallery-section .container .box-gallery img{
+  width: 100%;
+}
+
+.gallery-zoom{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: -100;
+  background-color: rgba(19, 19, 19, 0.7);
+  top: 0;
+  left: 0;
+  padding: 32px 12px;
+  justify-content: center;
+}
+#exit-zoom{
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-self: flex-start;
+  align-self: flex-end;
+  width: 40px;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+#exit-zoom img{
+  width: 50%;
+}
+.gallery-zoom .core-zoom{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  justify-content: center;
+  align-items: center;
+}
+.gallery-zoom .core-zoom img{
+  min-width: 100%;
+}
+.gallery-zoom .navigation-zoom{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: calc(100vw - 12px);
+  justify-self: center;
+  align-self: center;
+}
+.gallery-zoom .navigation-zoom button{
+  background-color: rgba(245, 245, 245, 0.425);
+  border: none;
+  border-radius: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+}
+.gallery-zoom .navigation-zoom button img{
+  width: 55%;
+}
+/* GALLERY */
+.double-section-black{
+  background-image: url(img/background-cp.png);
+  background-size: cover;
+  background-position: center;
+}
+.double-section-black .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+/* CAPTURE MOMENT */
+.moment-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.moment-section .img-section{
+  width: 100%;
+}
+.moment-section .item-moment-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.moment-section .item-moment-section p{
+  color: rgba(255, 255, 255, 0.8);
+}
+.moment-section .item-moment-section p.newyork{
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.moment-section .item-moment-section button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 24px;
+  margin: 12px 0;
+  position: relative;
+}
+.moment-section .item-moment-section button p{
+  color: #181818;
+}
+/* CAPTURE MOMENT */
+.line-star{
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.line-star img{
+  height: 24px;
+  position: relative;
+  z-index: 2;
+}
+.line-star .line{
+  width: 100%;
+  height: 1px;
+  background-color: white;
+  opacity: .5;
+  position: absolute;
+  z-index: 1;
+  border-radius: 1px;
+}
+/* GIFT */
+.gift-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+.gift-section .heading{
+  margin: 40px;
+}
+.gift-section p{
+  color: rgba(255, 255, 255, 0.8);
+}
+.gift-section .item-gift{
+  display: flex;
+  margin-top: 16px;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 8px;
+  align-items: flex-start;
+}
+.gift-section .item-gift p.newyork{
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+.gift-section .item-gift button{
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  background-color: whitesmoke;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gift-section .item-gift button .fill{
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: #3f3f3f;
+}
+.gift-section .box-gift{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 20px;
+}
+.gift-section .box-gift .detail-gift.hide{
+  opacity: 0;
+  z-index: 1;
+  transition: 0.8s;
+  transform: translateY(32px);
+}
+.gift-section .box-gift .detail-gift{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  opacity: 1;
+  z-index: 2;
+  transition: 0.8s;
+  transform: translateY(0);
+}
+.gift-section .box-gift .detail-gift .item-bank{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.gift-section .box-gift .detail-gift .item-bank .copy-able,
+.gift-section .box-gift .detail-gift.alamat .copy-able{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+/* GIFT */
+/* RSVP SECTION */
+.rsvp-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.rsvp-section .heading p{
+  color: #3f3f3f;
+  margin-bottom: 32px;
+}
+.rsvp-section .normal-text{
+  text-align: center;
+}
+.rsvp-section form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 32px 0;
+}
+.rsvp-section form input[type=text], .rsvp-section form textarea, .rsvp-section form input[type=number]{
+  width: 100%;
+  padding: 12px 12px;
+  background-color: #e0e0e07c;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: montserrat;
+  color: #181818ad;
+}
+.rsvp-section form .box-rsvp{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+.rsvp-section form .box-rsvp .cover{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+.rsvp-section form .box-rsvp .cover label{
+  font-family: montserrat;
+  font-size: 12px;
+  color: #181818bd;
+}
+.rsvp-section form button{
+  width: 100%;
+  padding: 10px 24px;
+  margin-top: 24px;
+  background-color: #181818e1;
+  color: whitesmoke;
+  border-radius: 2px;
+}
+/* RSVP SECTION */
+.rsvp-img{
+  width: 100%;
+}
+/* SWEET WORD SECTION */
+.sweet-word-section{
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 32px;
+}
+.sweet-word-section .heading{
+  margin-bottom: 32px;
+}
+.sweet-word-section .heading p.newyork{
+  color: #3f3f3f;
+}
+.sweet-word-section .heading p.handwriting{
+  color: #777777;
+}
+.sweet-word-section p.body-text{
+  text-align: center;
+  margin-bottom: 24px;
+}
+.sweet-word-section form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+.sweet-word-section form input, .sweet-word-section form textarea{
+  width: 100%;
+  padding: 12px 12px;
+  background-color: #e0e0e07c;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: montserrat;
+  color: #181818ad;
+}
+.sweet-word-section form button {
+  width: 100%;
+  padding: 10px 24px;
+  background-color: #181818e1;
+  color: whitesmoke;
+  border-radius: 2px;
+}
+.display-text{
+  width: 100%;
+  background-color: white;
+  margin-top: 24px;
+  padding: 8px 12px;
+  max-height: 350px;
+  overflow-y: scroll;
+}
+.display-text::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+}
+.display-text .item{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #18181838;
+}
+.display-text .item p.bigger{
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+/* SWEET WORD SECTION */
+/* FOOTER */
+footer{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+footer img.background{
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+footer .container{
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+footer .container .logo{
+  margin-bottom: 12px;
+}
+footer .container p{
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin-bottom: 8px;
+}
+footer .container .sosmed{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+footer .container .sosmed a{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+footer .container .sosmed p{
+  margin-bottom: 0;
+}
+/* FOOTER */
