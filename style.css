@@ -215,9 +215,9 @@ p.newyork{
 }
 p.normal-text{
   font-family: montserrat;
-  color: #181818;
-  opacity: .8;
+  color: #181818cb;
   font-size: 12px;
+  transition: 0.8s;
 }
 .introduce-section .container .head-introduce-section p.newyork{
   font-size: 56px;
@@ -237,6 +237,13 @@ p.normal-text{
 }
 .introduce-section .container .body-introduce-section p{
   text-align: center;
+  /* opacity: 0; */
+  transition: 0.8s;
+}
+.introduce-split-text .word{
+  opacity: 0;
+  transition: 0.8s ease;
+  transform: translateY(12px);
 }
 /* INTRODUCE SECTION */
 /* BRIDENGROOM SECTION */
@@ -349,6 +356,12 @@ p.normal-text{
 }
 .bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail .cover-text p{
   margin-bottom: 0;
+  transition: 0.8s ease;
+}
+.groom .bng-detail p.newyork .word,
+.bride .bng-detail p.newyork .word{
+  transform: translateY(100px);
+  transition: 0.8s ease;
 }
 .bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail .cover-text p.newyork{
   margin-bottom: 12px;
@@ -356,6 +369,7 @@ p.normal-text{
 }
 .bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail .cover-text p.normal-text{
   margin-bottom: 4px;
+  transform: translateY(100px);
 }
 .bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail .line{
   width: 80%;
@@ -676,15 +690,18 @@ p.normal-text{
   height: 24px;
   position: relative;
   z-index: 2;
+  opacity: 0;
+  transition: 1.2 linear;
 }
 .line-star .line{
-  width: 100%;
+  width: 0;
   height: 1px;
   background-color: white;
   opacity: .5;
   position: absolute;
   z-index: 1;
   border-radius: 1px;
+  transition: 2s linear;
 }
 /* GIFT */
 .gift-section{

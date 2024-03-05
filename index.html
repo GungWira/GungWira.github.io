@@ -4,10 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="util/locomotive/locomotive.css">
+  <link rel="stylesheet" href="util/splitting/splitting-cells.css">
+  <link rel="stylesheet" href="util/splitting/splitting.css">
+  <link rel="stylesheet" href="util/aos/aos.css">
   <title>White Serenity</title>
 </head>
 <body>
-  <main>
+  <main class="scrollContainer" style="scroll-behavior: smooth;">
     <nav class="nav-menu nav-mobile">
       <div class="container">
         <div class="item-nav-menu">
@@ -36,14 +40,14 @@
       <div class="container">
         <div class="head-introduce-section">
           <div class="cover-head-introduce-text">
-            <p class="newyork head-text-left">F</p>
-            <p class="newyork head-text-right">A</p>
+            <p class="newyork head-text-left" data-aos="fade-right" data-aos-duration="800">F</p>
+            <p class="newyork head-text-right" data-aos="fade-left" data-aos-duration="800">A</p>
           </div>
-          <img src="svg/Flower.svg" class="flower-introduce" alt="">
+          <img src="svg/Flower.svg" class="flower-introduce" data-aos="fade-up" data-aos-duration="800" alt="">
           <img src="img/back_flower.png" class="back-flower-introduce" alt="">
         </div>
         <div class="body-introduce-section">
-          <p class="normal-text">
+          <p class="normal-text introduce-split-text splt">
             Dari sekian banyaknya bunga yang ku temui, hanya dirimulah yang dapat membuatku terpana. Dari beribu macam cobaan yang
             menerpaku, hanya dirimulah yang selalu ada bersamaku, dan kuharap akan terus selamanya seperti itu
           </p>
@@ -53,14 +57,14 @@
     <div class="bridengroom-section">
       <div class="container">
         <div class="heading normal">
-          <p class="newyork">Bride & Groom</p>
+          <p class="newyork" data-aos="fade-up" data-aos-duration="800">Bride & Groom</p>
         </div>
         <div class="body-bridengroom-section">
-          <p class="normal-text">Assalamualaikum Warahmatullahi Wabarakatuh</p>
-          <p class="normal-text">Tanpa mengurangi rasa hormat, kami berencana untuk mengundang saudara/i sekalian untuk hadir pada cara pernikahan kedua
+          <p class="normal-text" data-aos="fade-up" data-aos-duration="800">Assalamualaikum Warahmatullahi Wabarakatuh</p>
+          <p class="normal-text" data-aos="fade-up" data-aos-duration="800">Tanpa mengurangi rasa hormat, kami berencana untuk mengundang saudara/i sekalian untuk hadir pada cara pernikahan kedua
           calon mempelai</p>
           <div class="bng-item groom">
-            <div class="bngimage">
+            <div class="bngimage" data-aos="flip-right" data-aos-duration="800">
               <div class="image-main">
                 <img src="img/main-groom-front.png" alt="img" class="front">
                 <img src="img/main-groom-back.png" alt="img" class="back">
@@ -75,7 +79,7 @@
               <div class="cover-text">
                 <p class="newyork">Aditya Wijaya Pratama</p>
               </div>
-              <div class="line"></div>
+              <div class="line" data-aos="fade" data-aos-duration="800"></div>
               <div class="cover-text">
                 <p class="normal-text">Putra dari :</p>
               </div>
@@ -96,7 +100,7 @@
             </div>
           </div>
           <div class="bng-item bride">
-            <div class="bngimage">
+            <div class="bngimage" data-aos="flip-left" data-aos-duration="800">
               <div class="image-main">
                 <img src="img/main-bride-front.png" alt="img" class="front">
                 <img src="img/main-bride-back.png" alt="img" class="back">
@@ -138,27 +142,27 @@
       <div class="container">
         <div class="timeline-section">
           <div class="container">
-            <div class="heading">
+            <div class="heading" data-aos="fade-up" data-aos-duration="800">
               <p class="newyork">Wedding</p>
               <p class="handwriting">Timeline</p>
             </div>
             <div class="body">
-              <p class="normal-text">
+              <p class="normal-text" data-aos="fade" data-aos-duration="800">
                 Dengan memohon do’a restu para hadirin sekalian, acara pernikahan kami akan dilaksanakan pada:
               </p>
               <div class="item-timeline">
-                <p class="handwriting title">Akad Nikah</p>
-                <img src="svg/Akad.svg" alt="">
-                <p class="space-text">MINGGU</p>
-                <p class="space-text">26 NOVEMBER 2023</p>
+                <p class="handwriting title" data-aos="fade-up" data-aos-duration="800">Akad Nikah</p>
+                <img src="svg/Akad.svg" alt="" data-aos="flip-right" data-aos-duration="800">
+                <p class="space-text" data-aos="fade-up" data-aos-duration="800">MINGGU</p>
+                <p class="space-text" data-aos="fade-up" data-aos-duration="800">26 NOVEMBER 2023</p>
               </div>
               <div class="item-timeline">
-                <p class="handwriting title">Resepsi</p>
-                <img src="svg/Resepsi.svg" alt="">
-                <p class="space-text">RABU</p>
-                <p class="space-text">29 NOVEMBER 2023</p>
+                <p class="handwriting title" data-aos="fade-up" data-aos-duration="800">Resepsi</p>
+                <img src="svg/Resepsi.svg" alt="" data-aos="flip-left" data-aos-duration="800">
+                <p class="space-text" data-aos="fade-up" data-aos-duration="800">RABU</p>
+                <p class="space-text" data-aos="fade-up" data-aos-duration="800">29 NOVEMBER 2023</p>
               </div>
-              <div class="event-location">
+              <div class="event-location" data-aos="fade-up" data-aos-duration="800">
                 <p class="normal-text">
                   Acara kami akan digelar pada lokasi :
                 </p>
@@ -174,23 +178,23 @@
         </div>
         <div class="countdown-section">
           <div class="container">
-            <p class="handwriting">Countdown</p>
-            <p class="space-text">HITUNG MUNDUR</p>
+            <p class="handwriting" data-aos="fade-up" data-aos-duration="800">Countdown</p>
+            <p class="space-text" data-aos="fade" data-aos-duration="800" data-aos-delay="800">HITUNG MUNDUR</p>
             <div class="line"></div>
             <div class="box-countdown">
-              <div class="item-countdown">
+              <div class="item-countdown" data-aos="flip-right" data-aos-duration="800" data-aos-delay="1200">
                 <p class="newyork">12</p>
                 <p class="normal-text">hari</p>
               </div>
-              <div class="item-countdown">
+              <div class="item-countdown" data-aos="flip-right" data-aos-duration="800" data-aos-delay="1600">
                 <p class="newyork">8</p>
                 <p class="normal-text">jam</p>
               </div>
-              <div class="item-countdown">
+              <div class="item-countdown" data-aos="flip-right" data-aos-duration="800" data-aos-delay="2000">
                 <p class="newyork">42</p>
                 <p class="normal-text">menit</p>
               </div>
-              <div class="item-countdown">
+              <div class="item-countdown" data-aos="flip-right" data-aos-duration="800" data-aos-delay="2400">
                 <p class="newyork">11</p>
                 <p class="normal-text">detik</p>
               </div>
@@ -207,21 +211,21 @@
       </div>
       <div class="container">
         <div class="heading">
-          <p class="newyork">Wedding</p>
-          <p class="handwriting">Gallery</p>
+          <p class="newyork" data-aos="fade-up" data-aos-duration="800">Wedding</p>
+          <p class="handwriting" data-aos="fade" data-aos-duration="800" data-aos-delay="800">Gallery</p>
         </div>
         <div class="box-gallery">
-          <img src="img/gallery-1.png" alt="img" class="img-1">
+          <img src="img/gallery-1.png" data-aos="fade" data-aos-duration="800" alt="img" class="img-1">
           <div class="cover-box-gallery">
             <div class="left-side-gallery">
-              <img src="img/gallery-2.png" alt="img" class="img-2">
-              <img src="img/gallery-3.png" alt="img" class="img-3">
-              <img src="img/gallery-4.png" alt="img" class="img-4">
+              <img src="img/gallery-2.png" data-aos="fade" data-aos-duration="800" alt="img" class="img-2">
+              <img src="img/gallery-3.png" data-aos="fade" data-aos-duration="800" alt="img" class="img-3">
+              <img src="img/gallery-4.png" data-aos="fade" data-aos-duration="800" alt="img" class="img-4">
             </div>
             <div class="right-side-gallery">
-              <img src="img/gallery-5.png" alt="img" class="img-5">
-              <img src="img/gallery-6.png" alt="img" class="img-6">
-              <img src="img/gallery-7.png" alt="img" class="img-7">
+              <img src="img/gallery-5.png" data-aos="fade" data-aos-duration="800" alt="img" class="img-5">
+              <img src="img/gallery-6.png" data-aos="fade" data-aos-duration="800" alt="img" class="img-6">
+              <img src="img/gallery-7.png" data-aos="fade" data-aos-duration="800" alt="img" class="img-7">
             </div>
           </div>
         </div>
@@ -249,11 +253,11 @@
       <div class="container">
         <div class="moment-section">
           <div class="heading">
-            <p class="newyork">Capture</p>
-            <p class="handwriting">The Moment</p>
+            <p class="newyork" data-aos="fade-up" data-aos-duration="800">Capture</p>
+            <p class="handwriting" data-aos="fade" data-aos-duration="800" data-aos-delay="800">The Moment</p>
           </div>
-          <img src="img/capture-moment-img.png" class="img-section" alt="">
-          <div class="item-moment-section">
+          <img src="img/capture-moment-img.png" class="img-section" alt="" data-aos="flip-right" data-aos-duration="800">
+          <div class="item-moment-section trigger-line" data-aos="fade-up" data-aos-duration="800">
             <p class="newyork">Live Streaming</p>
             <p class="normal-text">Temui kami secara virtual untuk menyaksikan acara pernikahan kami. Silahkan untuk join live streaming.</p>
             <button class="live">
@@ -261,7 +265,7 @@
               <img src="svg/Arrow.svg" alt="">
             </button>
           </div>
-          <div class="item-moment-section">
+          <div class="item-moment-section" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
             <p class="newyork">Instagram Filter</p>
             <p class="normal-text">Gunakan filter Intagram eksklusif kami sekarang juga! Bagikan moment bahagiamu bersama kami!</p>
             <button class="live">
@@ -276,11 +280,11 @@
         </div>
         <div class="gift-section">
           <div class="heading">
-            <p class="newyork">Blessing</p>
-            <p class="handwriting">Gift</p>
+            <p class="newyork" data-aos="fade-up" data-aos-duration="800">Blessing</p>
+            <p class="handwriting" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">Gift</p>
           </div>
-          <p class="normal-text">Terimakasih untuk hadiah spesial yang Anda berikan kepada pasangan kami!</p>
-          <div class="item-gift direct-gift">
+          <p class="normal-text" data-aos="fade-up" data-aos-duration="800">Terimakasih untuk hadiah spesial yang Anda berikan kepada pasangan kami!</p>
+          <div class="item-gift direct-gift" data-aos="fade-up" data-aos-duration="800">
             <button>
               <div class="fill"></div>
             </button>
@@ -289,7 +293,7 @@
               <p class="normal-text">Transfer langsung menuju rekening berikut</p>
             </div>
           </div>
-          <div class="item-gift direct-gift">
+          <div class="item-gift direct-gift" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
             <button>
               <div class="un-fill"></div>
             </button>
@@ -298,7 +302,7 @@
               <p class="normal-text">Kirim kado ke alamat yang tertera</p>
             </div>
           </div>
-          <div class="box-gift">
+          <div class="box-gift" data-aos="fade" data-aos-duration="800" data-aos-delay="800">
             <div class="detail-gift transfer">
               <p class="normal-text">Transfer langsung menuju rekening berikut ini :</p>
               <div class="item-bank">
@@ -333,10 +337,10 @@
       <div class="container">
         <div class="rsvp-section">
           <div class="heading">
-            <p class="newyork">RSVP</p>
+            <p class="newyork" data-aos="fade-up" data-aos-duration="800">RSVP</p>
           </div>
-          <p class="normal-text">Kehadiran Anda akan menjadi hadiah terisitimewa bagi kami calon pengantin baru</p>
-          <form action="">
+          <p class="normal-text" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">Kehadiran Anda akan menjadi hadiah terisitimewa bagi kami calon pengantin baru</p>
+          <form action="" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
             <input type="text" name="" id="" placeholder="Nama anda">
             <input type="number" name="" id="" placeholder="Jumlah tamu">
             <textarea name="" id="" rows="5" placeholder="Pesan anda"></textarea>
@@ -360,16 +364,16 @@
             </button>
           </form>
         </div>
-        <img src="img/image-rsvp.png" alt="" class="rsvp-img">
+        <img src="img/image-rsvp.png" alt="" class="rsvp-img" data-aos="flip-right" data-aos-duration="800">
         <div class="sweet-word-section">
           <div class="heading">
-            <p class="newyork">Sweet</p>
-            <p class="handwriting">Word</p>
+            <p class="newyork" data-aos="fade-up" data-aos-duration="800">Sweet</p>
+            <p class="handwriting" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">Word</p>
           </div>
-          <p class="normal-text body-text">
+          <p class="normal-text body-text" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
             Kehadiran Anda akan menjadi hadiah terisitimewa bagi kami calon pengantin baru
           </p>
-          <form action="">
+          <form action="" data-aos="fade-up" data-aos-duration="800" data-aos-delay="1200">
             <input type="text" placeholder="Nama anda">
             <textarea name="" id="" rows="6" placeholder="Upacan selamat anda"></textarea>
             <button>
@@ -409,4 +413,15 @@
     </footer>
   </main>
 </body>
+<script src="gsap-public/minified/gsap.min.js"></script>
+<script src="gsap-public/minified/ScrollTrigger.min.js"></script>
+<script src="gsap-public/minified/TextPlugin.min.js"></script>
+<script src="util/locomotive/locomotive.js"></script>
+<script src="util/splitting/splitting.min.js"></script>
+<script src="util/aos/aos.js"></script>
+<!-- <script src="script.js"></script> -->
+<script src="scriptAnimate.js"></script>
+<script>
+  AOS.init();
+</script>
 </html>
