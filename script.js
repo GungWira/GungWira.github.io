@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       let data = {
         name: form.firstElementChild.value,
-        message: form.firstElementChild.nextElementSibling.nextElementSibling.value
+        message: form.firstElementChild.nextElementSibling.value
       }
       let options = {
           method: 'POST',
@@ -25,16 +25,19 @@ document.addEventListener('DOMContentLoaded', function () {
           } else {
             // Tambahkan data ke list
             const boxText = document.querySelector(".box-text")
-            const lastChat = document.querySelector(".box-text .item-text")
+            const lastChat = document.querySelector(".box-text .item")
             const cover = document.createElement("div")
-            cover.classList.add("item-text")
+            cover.classList.add("item")
             const imgCover = document.createElement("img")
             imgCover.src = "../templates/"+id+"/svg/Letter.svg"
             const coverContent = document.createElement("div")
-            coverContent.classList.add("content-text")
-            const span = document.createElement("span")
+            coverContent.classList.add("body-display-text")
+            const span = document.createElement("p")
+            span.classList.add("normal-text")
+            span.classList.add("bigger")
             span.innerHTML = form.firstElementChild.value
             const par = document.createElement("p")
+            par.classList.add("normal-text")
             par.innerHTML = form.firstElementChild.nextElementSibling.nextElementSibling.value
 
             coverContent.appendChild(span)
@@ -49,19 +52,22 @@ document.addEventListener('DOMContentLoaded', function () {
             form.firstElementChild.nextElementSibling.nextElementSibling.value = ""
           }
       })
-      
     });
   });
 
 // RSPV
-const formWa = document.getElementById("rspv")
-const btnRSPV = document.querySelector("#rspv button")
-btnRSPV.addEventListener("click", ()=>{
-  const name = document.querySelectorAll("#rspv input")[0].value
-  const address = document.querySelectorAll("#rspv input")[1].value
+const formWa = document.getElementById("rsvp")
+const btnRSPV = document.querySelector("#rsvp button")
+btnRSPV.addEventListener("click", (event)=>{
+  event.preventDefault();
+  const name = document.querySelectorAll("#rsvp input")[0].value
+  const total = document.querySelectorAll("#rsvp input")[1].value
+  const keterangan = document.querySelector('input[name="konfirmasi"]:checked').value
   var message = ""
-  if(document.querySelector("#hadir").checked == true){
-    message = "Assalamualaikum%20Warahmatullahi%20Wabarakatuh%2C%20saya%20"+name+"%20selaku%20perwakilan%20keluarga%20besar%20ingin%20mengucapkan%20bahwa%20keluarga%20kami%20Bersedia%20Hadir%20pada%20acara%20pernikahan%20saudara.%20Terimakasih"
+  if(keterangan == "hadir"){
+    message = "Assalamualaikum%20Warahmatullahi%20Wabarakatuh%2C%20saya%20"+name+"%20selaku%20perwakilan%20keluarga%20besar%20saya%20dengan%20jumlah%20undangan%20"+total+"%20orang%20ingin%20mengkonfirmasi%20bahwa%20keluarga%20kami%20Bersedia%20*Hadir*%20pada%20acara%20pernikahan%20saudara.%20Terimakasih"
+  }else if(keterangan = "ragu"){
+    message = "Assalamualaikum%20Warahmatullahi%20Wabarakatuh%2C%20saya%20"+name+"%20selaku%20perwakilan%20keluarga%20besar%20saya%20ingin%20mengkonfirmasi%20bahwa%20keluarga%20kami%20*berencana%20untuk%20Hadir*%20pada%20acara%20pernikahan%20saudara.%20Terimakasih"
   }else{
     message = "Assalamualaikum%20Warahmatullahi%20Wabarakatuh%2C%20saya%20"+name+"%20selaku%20perwakilan%20keluarga%20besar%20ingin%20mengucapkan%20permohonan%20maaf%20karena%20keluarga%20kami%20Tidak%20Dapat%20Hadir%20pada%20acara%20pernikahan%20saudara.%20Terimakasih"
   }
@@ -134,8 +140,11 @@ const prevImg = document.querySelector(".core-zoom .prev")
 const nextImg = document.querySelector(".core-zoom .next")
 var imgId = 1
 
+console.log(allImgs)
+
 allImgs.forEach(img => {
     img.addEventListener("click", (e)=>{
+      console.log("ok")
         imageZoom(e.target)
     })
 });

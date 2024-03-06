@@ -1,0 +1,754 @@
+/* SETUP */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  /* scroll-behavior: smooth; */
+}
+main{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+  position: relative;
+  overflow-x: hidden;
+}
+@media screen and (min-width:476px) {
+  main{
+  max-width: 476px;
+  }
+}
+body{
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+.desktop{
+  width: 100%;
+  height: 100vh;
+  background-image: url(./img/ls-1.png);
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+.desktop::before{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+}
+button.music{
+  display: flex;
+  position: fixed;
+  bottom: 32px;
+  right: 20px;
+  z-index: 100;
+  height: 64px;
+  width: 64px;
+  background-color: transparent;
+  animation: rotating infinite 8s linear;
+}
+@keyframes rotating {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+button.music img{
+  width: 100%;
+}
+/* SETUP */
+/* FONT */
+@font-face {
+  font-family: montserrat;
+  src: url(fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: BerkshireSwash;
+  src: url(fonts/BerkshireSwash/BerkshireSwash-Regular.ttf);
+}
+@font-face {
+  font-family: newyork;
+  src: url(fonts/NewYork/NewYork.otf);
+}
+/* FONT */
+/* NAV */
+nav{
+  width: 100%;
+  background-color: rgba(245, 245, 245, 0.4);
+  backdrop-filter: blur(40px);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  height: 72px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  opacity: 0;
+}
+nav .container{
+  padding: 12px 32px;
+}
+/* NAV */
+p.space-text{
+  font-family: montserrat;
+  color: white;
+  opacity: .8;
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+p.handwriting{
+  font-family: BerkshireSwash;
+}
+p.normal-text {
+  font-family: montserrat;
+  color: #181818cb;
+  font-size: 12px;
+  transition: 0.8s;
+}
+/* welcome section */
+.welcome-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: rgb(0, 48, 60);
+  background: radial-gradient(circle, rgba(0, 48, 60, 1) 30%, rgba(0, 61, 75, 1) 100%);
+  position: relative;
+  z-index: 1;
+}
+.welcome-section .overlay{
+  position: relative;
+  z-index: 2;
+  background-image: url(img/background.svg);
+  background-size: cover;
+  background-repeat: repeat-y;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.welcome-section .overlay .circle-big-left{
+  width: 70vw;
+  position: absolute;
+  top: -100px;
+  left: -80px;
+  animation-delay: 2000ms;
+  animation-name: rotate-small;
+  animation-duration: 6000ms;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+.welcome-section .overlay .circle-big-right{
+  width: 60vw;
+  position: absolute;
+  top: 100px;
+  right: -110px;
+  animation-name: rotate-small;
+  animation-duration: 6000ms;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+.welcome-section .overlay .circle-top{
+  position: absolute;
+  top: 0;
+  right: 30px;
+  width: 35vw;
+}
+.welcome-section .overlay .lentera-kiri{
+  width: 15vw;
+  top: 0;
+  left: 24px;
+  position: absolute;
+  animation-name: shake-lentera;
+  animation-duration: 6000ms;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+.welcome-section .overlay .lentera-kanan{
+  width: 15vw;
+  position: absolute;
+  right: 24px;
+  animation-delay: 2000ms;
+  animation-name: shake-lentera;
+  animation-duration: 6000ms;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+.welcome-section .overlay .awan-hitam-bawah{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.welcome-section .overlay .awan-putih-kiri{
+  width: 50vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.welcome-section .overlay .awan-putih-kanan{
+  width: 50vw;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.welcome-section .overlay .masjid-back{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.welcome-section .overlay .masjid-front{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.welcome-section .overlay .awan-kiri{
+  width: 30vw;
+  position: absolute;
+  left: 24px;
+  transform: translateY(300%);
+}
+.welcome-section .overlay .awan-kanan{
+  width: 25vw;
+  position: absolute;
+  right: 24px;
+  transform: translateY(-350%);
+}
+@keyframes shake-lentera {
+  0%{
+    transform: rotate(0);
+  }
+  10%{
+    transform: scale(1.1);
+  }
+  25%{
+    transform: rotate(5deg) scale(1.1);
+  }
+  50%{
+    transform: rotate(-5deg) scale(1.1);
+  }
+  75%{
+    transform: rotate(5deg) scale(1.1);
+  }
+  90%{
+    transform: scale(1.1);
+  }
+}
+@keyframes rotate-small {
+  0%, 100%{
+    transform: rotate(0deg);
+  }
+  50%{
+    transform: rotate(5deg);
+  }
+}
+.welcome-section p.handwriting{
+  color: white;
+  font-size: 42px;
+  margin: 8px 0;
+}
+.welcome-section .text-welcome-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  z-index: 3;
+  transform: translateY(-20%);
+}
+.welcome-section .text-welcome-section button{
+  padding: 10px 24px;
+  margin-top: 12px;
+  background-color: #F6F0E4;
+}
+/* welcome section */
+/* introduce section */
+.introduce-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #F6F0E4;
+  position: relative;
+  z-index: 1;
+}
+.introduce-section .overlay{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+.introduce-section .overlay .top-overlay{
+  width: 100%;
+  height: 5px;
+  background-color: #F6F0E4;
+  position: absolute;
+  top: -2.5px;
+}
+.introduce-section .overlay .bottom-overlay {
+  width: 100%;
+  height: 5px;
+  background-color: #F6F0E4;
+  position: absolute;
+  bottom: -2.5px;
+}
+.introduce-section .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 24px;
+  position: relative;
+  z-index: 3;
+  gap: 8px;
+}
+.introduce-section .container p{
+  text-align: center;
+}
+.introduce-section .container p.handwriting{
+  font-size: 24px;
+  color: #02343F;
+}
+.heading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.line-setting{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 4px 0;
+}
+.line-setting .rec{
+  width: 8px;
+  aspect-ratio: 1 / 1;
+  transform: rotate(45deg);
+}
+.line-setting .line{
+  width: 100%;
+  height: 2px;
+}
+.line-setting.blue-line .rec,
+.line-setting.blue-line .line{
+  background-color: #02343F;
+}
+.line-setting.white-line .rec,
+.line-setting.white-line .line {
+  background-color: rgba(255, 255, 255, 0.815);
+}
+/* introduce section */
+/* detail-section */
+.detail-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  background: rgb(0, 48, 60);
+  background: radial-gradient(circle, rgba(0, 48, 60, 1) 30%, rgba(0, 61, 75, 1) 100%);
+}
+.detail-section .overlay{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.detail-section .overlay .awan-kiri{
+  position: relative;
+  bottom: -16px;
+  left: 0;
+  width: 50vw;
+}
+.detail-section .overlay .awan-kanan{
+  position: relative;
+  bottom: 0;
+  right: 0;
+  width: 50vw;
+}
+.detail-section .maps{
+  width: 100%;
+  margin: 24px 0;
+}
+.detail-section .maps iframe{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+.detail-section .overlay.flip{
+  transform: rotate(180deg);
+}
+.detail-section .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 40px 24px;
+  position: relative;
+  z-index: 2;
+}
+.detail-section .container p{
+  color: rgba(255, 255, 255, 0.8);
+}
+.detail-section .container p.handwriting{
+  color: white;
+  font-size: 24px;
+}
+.detail-section .container .heading{
+  margin-bottom: 12px;
+}
+.detail-section .container .paragraft{
+  text-indent: 20px;
+  text-align: justify;
+  margin-bottom: 16px;
+}
+.detail-section .container .table{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+.detail-section .container .table p{
+  margin-bottom: 4px;
+}
+.detail-section .container button{
+  padding: 10px 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+.detail-section .container button p{
+  color: #181818;
+}
+/* detail-section */
+/* hadist */
+.hadist-section img{
+  width: 70vw;
+}
+/* hadist */
+/* COUNTDOWN */
+.countdown-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  flex-direction: column;
+    background: rgb(0, 48, 60);
+  background: radial-gradient(circle, rgba(0, 48, 60, 1) 30%, rgba(0, 61, 75, 1) 100%);
+}
+.countdown-section .overlay{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.countdown-section .overlay .awan-kiri{
+  position: relative;
+  bottom: -16px;
+  left: 0;
+  width: 50vw;
+}
+.countdown-section .overlay .awan-kanan{
+  position: relative;
+  bottom: 0;
+  right: 0;
+  width: 50vw;
+}
+.countdown-section .overlay.flip{
+  transform: rotate(180deg);
+}
+.countdown-section .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 2;
+}
+.countdown-section .container p.handwriting{
+  font-size: 24px;
+  color: white;
+}
+.countdown-section .container .cover-box-countdown{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 24px;
+  width: 100%;
+  flex-direction: column;
+  gap: 12px;
+}
+.countdown-section .container .box-countdown{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 12px;
+}
+.countdown-section .container .box-countdown .item-countdown{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(224, 224, 224, 0.1);
+  flex: 1;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(245, 245, 245, 0.527);
+}
+.countdown-section .container .box-countdown .item-countdown p{
+  color: rgba(255, 255, 255, 0.8);
+}
+.countdown-section .container .box-countdown .item-countdown p.newyork{
+  font-size: 18px;
+}
+.backImg{
+  background-image: url(img/background.svg);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+/* COUNTDOWN */
+/* RSVP SECTION */
+.rsvp-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  background-color: #F6F0E4;
+}
+.rsvp-section .container{
+  padding: 40px 24px;
+}
+.rsvp-section .heading{
+  margin-bottom: 12px;
+}
+.rsvp-section .heading p{
+  color: #3f3f3f;
+}
+.rsvp-section .heading p{
+  font-size: 24px;
+}
+.rsvp-section .normal-text{
+  text-align: center;
+}
+.rsvp-section form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 32px 0;
+}
+.rsvp-section form input[type=text], .rsvp-section form textarea, .rsvp-section form input[type=number]{
+  width: 100%;
+  padding: 12px 12px;
+  background-color: #e0e0e07c;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: montserrat;
+  color: #181818ad;
+}
+.rsvp-section form .box-rsvp{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+.rsvp-section form .box-rsvp .cover{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+.rsvp-section form .box-rsvp .cover label{
+  font-family: montserrat;
+  font-size: 12px;
+  color: #181818bd;
+}
+.rsvp-section form button{
+  width: 100%;
+  padding: 10px 24px;
+  margin-top: 24px;
+  background-color: #003D4B;
+  color: whitesmoke;
+  border-radius: 2px;
+}
+.rsvp-section .overlay{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+.rsvp-section .overlay .top-overlay{
+  width: 100%;
+  height: 5px;
+  background-color: #F6F0E4;
+  position: absolute;
+  top: -2.5px;
+}
+.rsvp-section .overlay .bottom-overlay {
+  width: 100%;
+  height: 5px;
+  background-color: #F6F0E4;
+  position: absolute;
+  bottom: -2.5px;
+}
+/* RSVP SECTION */
+/* CLOSSING */
+.clossing{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: rgb(0, 48, 60);
+  background: radial-gradient(circle, rgba(0, 48, 60, 1) 30%, rgba(0, 61, 75, 1) 100%);
+  position: relative;
+  z-index: 1;
+}
+.clossing .overlay{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.clossing .overlay .awan-kiri{
+  position: relative;
+  bottom: -16px;
+  left: 0;
+  width: 50vw;
+}
+.clossing .overlay .awan-kanan{
+  position: relative;
+  bottom: 0;
+  right: 0;
+  width: 50vw;
+}
+.clossing .overlay.flip{
+  transform: rotate(180deg);
+}
+.clossing .cirle-cover{
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.clossing .cirle-cover .left-circle{
+  position: relative;
+  width: 70vw;
+  right: 150px;
+
+}
+.clossing .cirle-cover .right-cirle{
+  position: absolute;
+  width: 70vw;
+  bottom: -50px;
+}
+.clossing .text-clossing-section{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 80px;
+}
+.clossing .text-clossing-section p.handwriting{
+  color: white;
+  font-size: 42px;
+}
+/* CLOSSING */
+/* FOOTER */
+footer{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+footer .container{
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 24px;
+}
+footer .container .logo{
+  margin-bottom: 12px;
+}
+footer .container p{
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin-bottom: 8px;
+}
+footer .container .sosmed{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+footer .container .sosmed a{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+footer .container .sosmed p{
+  margin-bottom: 0;
+}
+/* FOOTER */
+

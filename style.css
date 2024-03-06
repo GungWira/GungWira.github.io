@@ -128,6 +128,16 @@ nav .container{
 .welcome-section .background-welcome-section img{
   height: 100%;
 }
+.welcome-section .background-welcome-section img.backgroundNow{
+  opacity: 1;
+  z-index: 2;
+  transition: 1.8s;
+}
+.welcome-section .background-welcome-section img.backgroundNext{
+  opacity: 1;
+  z-index: 1;
+  position: absolute;
+}
 .welcome-section .background-welcome-section .cover-background-welcome{
   width: 100%;
   height: 100%;
@@ -136,6 +146,7 @@ nav .container{
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 3;
 }
 .welcome-section .content-welcome-section{
   display: flex;
@@ -143,6 +154,7 @@ nav .container{
   justify-content: flex-start;
   align-items: flex-start;
   position: absolute;
+  z-index: 4;
   left: 32px;
   bottom: 96px;
 }
@@ -374,8 +386,7 @@ p.normal-text{
 .bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail .line{
   width: 80%;
   height: 1px;
-  background-color: white;
-  opacity: .5;
+  background-color: rgba(255, 255, 255, 0.5);
   margin-bottom: 12px;
 }
 .bridengroom-section .container .body-bridengroom-section .bng-item .bng-detail .social-media{

@@ -4,6 +4,31 @@ const locoScroll = new LocomotiveScroll({
   smooth: true,
 });
 
+// WELCOME
+const imgBackgroundNow = document.querySelector(".backgroundNow")
+const imgBackgroundNext = document.querySelector(".backgroundNext")
+const backgrounds = ["Background.png", "background-cp.png", "background_bng.png", "background-cp.png"]
+
+function changeBackground(){
+  const backgroundLenght = backgrounds.length
+  let count = 0
+  setInterval(() => {
+    // ganti background
+    if(count == backgroundLenght){
+      count = 0
+    }
+    imgBackgroundNext.src = "img/"+backgrounds[count+1 == backgroundLenght ? 0 : count+1 ]
+    imgBackgroundNow.style.opacity = 0
+    setTimeout(() => {
+      imgBackgroundNow.src = "img/"+backgrounds[count]
+      imgBackgroundNow.style.opacity = 1
+    }, 2000);
+    count++
+  }, 8000);
+}
+changeBackground()
+// WELCOME
+
 
 // INTRODUCE
 const textIntroduce = document.querySelector(".introduce-split-text") // seleksi target
