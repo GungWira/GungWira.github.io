@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
       loadingPage.style.transform = "translateY(-100%)"
       setTimeout(() => {
         setUpContent()
-      }, 10);
-    }, 15);
-  }, 15);
+      }, 1000);
+    }, 1500);
+  }, 1500);
 })
 // LOADING
 // WELCOME-SECTION
