@@ -123,6 +123,83 @@ p.normal-text {
   font-size: 12px;
   transition: 0.8s;
 }
+/* LOADING PAGE */
+.loading-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #003D4B;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 1s;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  gap: 24px;
+}
+.loader {
+  position: relative;
+  width: 100px;
+  height: 16px;
+  transform: translateX(10px);
+}
+.loader:before , .loader:after{
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 32px 0 #fff;
+  left: 0;
+  top: 0;
+  animation: ballMoveX 2s linear infinite;
+}
+.loader:after {
+  box-shadow: none;
+  transform: translateX(64px) scale(1);
+  z-index: 2;
+  animation: none;
+  animation: trfLoader 2s linear infinite;
+}
+
+@keyframes trfLoader {
+  0% , 5%{
+    transform: translateX(64px) scale(1);
+    background: #FFF;
+  }
+  10%{
+    transform: translateX(64px) scale(1);
+    background: #025c70;
+  }
+  40%{
+      transform: translateX(32px) scale(1.5);
+      background: #025c70;
+    }
+  90%, 95% {
+    transform: translateX(0px) scale(1);
+    background: #025c70;
+  }
+  100% {
+    transform: translateX(0px) scale(1);
+    background: #FFF;
+  }
+}
+@keyframes ballMoveX {
+  0% , 10%{  transform: translateX(0) }
+  90%, 100% { transform: translateX(32px) }
+}
+.cover-white-loading{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: #F6F0E4;
+  transition: 0.8s;
+  transform: translateY(100%);
+}
+/* LOADING PAGE */
 /* welcome section */
 .welcome-section{
   display: flex;
@@ -145,93 +222,148 @@ p.normal-text {
   width: 100%;
   height: 100%;
   display: flex;
+  opacity: 0;
+  transition: 1.5s ease;
   align-items: center;
 }
 .welcome-section .overlay .circle-big-left{
-  width: 70vw;
+  width: 70%;
   position: absolute;
   top: -100px;
   left: -80px;
   animation-delay: 2000ms;
-  animation-name: rotate-small;
   animation-duration: 6000ms;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
+  transform: scale(0);
+  transition: 1s;
 }
 .welcome-section .overlay .circle-big-right{
-  width: 60vw;
+  width: 60%;
   position: absolute;
   top: 100px;
   right: -110px;
-  animation-name: rotate-small;
+  /* animation-name: rotate-small; */
   animation-duration: 6000ms;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
+  transform: scale(0);
+  transition: 1s;
+  transition-delay: 500ms;
+}
+.welcome-section .overlay .circle-big-left.showOff,
+.welcome-section .overlay .circle-big-right.showOff {
+  transform: scale(1);
+  /* animation-name: rotate-small; */
 }
 .welcome-section .overlay .circle-top{
   position: absolute;
   top: 0;
   right: 30px;
-  width: 35vw;
+  width: 35%;
+  transform: translateY(-100%);
+  transition: 1s;
 }
 .welcome-section .overlay .lentera-kiri{
-  width: 15vw;
+  width: 15%;
   top: 0;
   left: 24px;
   position: absolute;
-  animation-name: shake-lentera;
+  /* animation-name: shake-lentera; */
   animation-duration: 6000ms;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
+  transform: translateY(-100%);
+  transition: 1s;
+  transition-delay: 1.5s;
 }
 .welcome-section .overlay .lentera-kanan{
-  width: 15vw;
+  width: 15%;
   position: absolute;
   right: 24px;
   animation-delay: 2000ms;
-  animation-name: shake-lentera;
+  /* animation-name: shake-lentera; */
   animation-duration: 6000ms;
   animation-timing-function: ease;
   animation-iteration-count: infinite;
+  transform: translateY(-200%);
+  transition: 1s;
+  transition-delay: 2s;
 }
 .welcome-section .overlay .awan-hitam-bawah{
   width: 100%;
   position: absolute;
   bottom: 0;
+  transform: translateY(100%);
+  transition: 1s;
 }
 .welcome-section .overlay .awan-putih-kiri{
-  width: 50vw;
+  width: 50%;
   position: absolute;
   bottom: 0;
   left: 0;
+  transform: translateX(-100%);
+  transition: 1s;
+  transition-delay: 1.5s;
 }
 .welcome-section .overlay .awan-putih-kanan{
-  width: 50vw;
+  width: 50%;
   position: absolute;
   bottom: 0;
   right: 0;
+  transform: translateX(100%);
+  transition: 1s;
+  transition-delay: 1.5s;
 }
 .welcome-section .overlay .masjid-back{
   width: 100%;
   position: absolute;
   bottom: 0;
+  transform: translateY(100%);
+  transition: 1s;
+  transition-delay: 3s;
 }
 .welcome-section .overlay .masjid-front{
   width: 100%;
   position: absolute;
   bottom: 0;
+  transform: translateY(100%);
+  transition: 1s;
+  transition-delay: 3.7s;
+}
+.welcome-section .overlay .circle-top.showOff,
+.welcome-section .overlay .lentera-kiri.showOff,
+.welcome-section .overlay .lentera-kanan.showOff,
+.welcome-section .overlay .awan-hitam-bawah.showOff,
+.welcome-section .overlay .masjid-back.showOff,
+.welcome-section .overlay .masjid-front.showOff {
+  transform: translateY(0);
 }
 .welcome-section .overlay .awan-kiri{
-  width: 30vw;
+  width: 30%;
   position: absolute;
   left: 24px;
-  transform: translateY(300%);
+  transform: translateY(300%) translateX(-200%);
+  transition: 1s;
+  transition-delay: 5s;
 }
 .welcome-section .overlay .awan-kanan{
-  width: 25vw;
+  width: 25%;
   position: absolute;
   right: 24px;
-  transform: translateY(-350%);
+  transform: translateY(-350%) translateX(200%);
+  transition: 1s;
+  transition-delay: 5s;
+}
+.welcome-section .overlay .awan-putih-kiri.showOff,
+.welcome-section .overlay .awan-putih-kanan.showOff{
+  transform: translateX(0);
+}
+.welcome-section .overlay .awan-kiri.showOff{
+  transform: translateY(300%) translateX(-0%);
+}
+.welcome-section .overlay .awan-kanan.showOff{
+  transform: translateY(-350%) translateX(0%);
 }
 @keyframes shake-lentera {
   0%{
@@ -280,6 +412,8 @@ p.normal-text {
   padding: 10px 24px;
   margin-top: 12px;
   background-color: #F6F0E4;
+  opacity: 0;
+  transition: 0.8s;
 }
 /* welcome section */
 /* introduce section */
@@ -331,6 +465,11 @@ p.normal-text {
   font-size: 24px;
   color: #02343F;
 }
+p.handwriting.nonesensial{
+  transform: translateY(30px);
+  transition: 0.8s ease;
+  transition-delay: 0.5s;
+}
 .heading{
   display: flex;
   flex-direction: column;
@@ -352,8 +491,9 @@ p.normal-text {
   transform: rotate(45deg);
 }
 .line-setting .line{
-  width: 100%;
+  width: 0;
   height: 2px;
+  transition: 1.5s ease-in-out;
 }
 .line-setting.blue-line .rec,
 .line-setting.blue-line .line{
@@ -386,13 +526,13 @@ p.normal-text {
   position: relative;
   bottom: -16px;
   left: 0;
-  width: 50vw;
+  width: 50%;
 }
 .detail-section .overlay .awan-kanan{
   position: relative;
   bottom: 0;
   right: 0;
-  width: 50vw;
+  width: 50%;
 }
 .detail-section .maps{
   width: 100%;
@@ -452,10 +592,28 @@ p.normal-text {
 .detail-section .container button p{
   color: #181818;
 }
+.cover p .word{
+  transform: translateY(30px);
+  opacity: 0;
+  transition: 0.8s ease;
+}
+.cover{
+  overflow-y: hidden;
+}
+.cover p.space-text {
+  transform: translateY(30px);
+  opacity: 0;
+  transition: 0.8s ease;
+}
 /* detail-section */
 /* hadist */
 .hadist-section img{
-  width: 70vw;
+  width: 100%;
+}
+.hadist-section .container .heading .cover{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* hadist */
 /* COUNTDOWN */
@@ -482,13 +640,13 @@ p.normal-text {
   position: relative;
   bottom: -16px;
   left: 0;
-  width: 50vw;
+  width: 50%;
 }
 .countdown-section .overlay .awan-kanan{
   position: relative;
   bottom: 0;
   right: 0;
-  width: 50vw;
+  width: 50%;
 }
 .countdown-section .overlay.flip{
   transform: rotate(180deg);
@@ -666,13 +824,13 @@ p.normal-text {
   position: relative;
   bottom: -16px;
   left: 0;
-  width: 50vw;
+  width: 50%;
 }
 .clossing .overlay .awan-kanan{
   position: relative;
   bottom: 0;
   right: 0;
-  width: 50vw;
+  width: 50%;
 }
 .clossing .overlay.flip{
   transform: rotate(180deg);
@@ -686,14 +844,17 @@ p.normal-text {
 }
 .clossing .cirle-cover .left-circle{
   position: relative;
-  width: 70vw;
+  width: 70%;
   right: 150px;
-
+  transform: translateX(-100%);
+  transition: 1s;
 }
 .clossing .cirle-cover .right-cirle{
   position: absolute;
-  width: 70vw;
+  width: 70%;
   bottom: -50px;
+  transform: translateX(100%);
+  transition: 1s;
 }
 .clossing .text-clossing-section{
   display: flex;
