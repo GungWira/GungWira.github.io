@@ -1,0 +1,855 @@
+/* SETUP */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  /* scroll-behavior: smooth; */
+}
+main{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  justify-self: center;
+  align-self: center;
+  position: relative;
+  overflow-x: hidden;
+}
+@media screen and (min-width:476px) {
+  main{
+  max-width: 476px;
+  }
+}
+body{
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+.desktop{
+  width: 100%;
+  height: 100vh;
+  background-image: url(./img/ls-1.png);
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+.desktop::before{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.5);
+}
+button.music{
+  display: flex;
+  position: fixed;
+  bottom: 32px;
+  right: 20px;
+  z-index: 100;
+  height: 64px;
+  width: 64px;
+  background-color: transparent;
+  animation: rotating infinite 8s linear;
+}
+@keyframes rotating {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+button.music img{
+  width: 100%;
+}
+/* SETUP */
+/* FONT */
+@font-face {
+  font-family: montserrat;
+  src: url(fonts/Montserrat/Montserrat-Regular.ttf);
+}
+@font-face {
+  font-family: BerkshireSwash;
+  src: url(fonts/BerkshireSwash/BerkshireSwash-Regular.ttf);
+}
+@font-face {
+  font-family: newyork;
+  src: url(fonts/NewYork/NewYork.otf);
+}
+/* FONT */
+/* NAV */
+nav{
+  width: 100%;
+  background-color: rgba(245, 245, 245, 0.4);
+  backdrop-filter: blur(40px);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  height: 72px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  opacity: 0;
+}
+nav .container{
+  padding: 12px 32px;
+}
+/* NAV */
+p.space-text{
+  font-family: montserrat;
+  color: white;
+  opacity: .8;
+  letter-spacing: 4px;
+  font-size: 12px;
+}
+p.handwriting{
+  font-family: BerkshireSwash;
+}
+p.normal-text {
+  font-family: montserrat;
+  color: rgba(255, 255, 255, 0.856);
+  font-size: 12px;
+  transition: 0.8s;
+}
+/* LOADING PAGE */
+.loading-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #6D74CF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 1s;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  gap: 24px;
+}
+.loader {
+  position: relative;
+  width: 100px;
+  height: 16px;
+  transform: translateX(10px);
+}
+.loader:before , .loader:after{
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 32px 0 #fff;
+  left: 0;
+  top: 0;
+  animation: ballMoveX 2s linear infinite;
+}
+.loader:after {
+  box-shadow: none;
+  transform: translateX(64px) scale(1);
+  z-index: 2;
+  animation: none;
+  animation: trfLoader 2s linear infinite;
+}
+
+@keyframes trfLoader {
+  0% , 5%{
+    transform: translateX(64px) scale(1);
+    background: #FFF;
+  }
+  10%{
+    transform: translateX(64px) scale(1);
+    background: #025c70;
+  }
+  40%{
+      transform: translateX(32px) scale(1.5);
+      background: #025c70;
+    }
+  90%, 95% {
+    transform: translateX(0px) scale(1);
+    background: #025c70;
+  }
+  100% {
+    transform: translateX(0px) scale(1);
+    background: #FFF;
+  }
+}
+@keyframes ballMoveX {
+  0% , 10%{  transform: translateX(0) }
+  90%, 100% { transform: translateX(32px) }
+}
+.cover-white-loading{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: #2D2B69;
+  transition: 0.8s;
+  transform: translateY(100%);
+}
+/* LOADING PAGE */
+/* welcome section */
+.welcome-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background: rgb(109, 116, 207);
+  background: radial-gradient(circle, rgba(109, 116, 207, 1) 30%, rgba(87, 93, 168, 1) 100%);
+  position: relative;
+  z-index: 1;
+}
+.welcome-section .overlay{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  opacity: 0;
+  transition: 1.5s ease;
+  justify-content: center;
+}
+.welcome-section .overlay .background-long.showOff,
+.welcome-section .overlay .masjid-putih.showOff,
+.welcome-section .overlay .lampu-kanan-1.showOff,
+.welcome-section .overlay .lampu-kanan-2.showOff,
+.welcome-section .overlay .lampu-kiri-1.showOff,
+.welcome-section .overlay .lampu-kiri-2.showOff,
+.welcome-section .text-welcome-section img.showOff{
+  transform: translateY(0);
+}
+.welcome-section .overlay .masjid-kanan.showOff,
+.welcome-section .overlay .masjid-kiri.showOff{
+  transform: translateX(0);
+}
+
+.welcome-section .overlay .background-long{
+  width: calc(100% - 48px);
+  position: absolute;
+  padding-top: 40px;
+  transform: translateY(100%);
+  transition: 2s ease-in-out;
+}
+.welcome-section .overlay .background-path{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 1;
+}
+.welcome-section .overlay .masjid-putih{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  transition: 1s ease-in-out;
+  transition-delay: 1.5s;
+}
+.welcome-section .overlay .masjid-kanan{
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateX(100%);
+  transition: 1s ease-in-out;
+  transition-delay: 1.5s;
+}
+.welcome-section .overlay .masjid-kiri{
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: 1s ease-in-out;
+  transition-delay: 1.5s;
+}
+.welcome-section .overlay .lampu-kanan-1{
+  width: 10%;
+  position: absolute;
+  right: 20%;
+  transform: translateY(-100%);
+  transition: 1s ease-in-out;
+  transition-delay: 2s;
+    animation-duration: 6000ms;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+.welcome-section .overlay .lampu-kanan-2{
+  width: 15%;
+  position: absolute;
+  right: 5%;
+  transform: translateY(-100%);
+  transition: 1s ease-in-out;
+  transition-delay: 2.5s;
+    animation-duration: 6000ms;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+}
+.welcome-section .overlay .lampu-kiri-1{
+  width: 10%;
+  position: absolute;
+  left: 20%;
+  transform: translateY(-100%);
+  transition: 1s ease-in-out;
+  transition-delay: 2.8s;
+    animation-duration: 6000ms;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-delay: .8s;
+}
+.welcome-section .overlay .lampu-kiri-2{
+  width: 15%;
+  position: absolute;
+  left: 5%;
+  transform: translateY(-100%);
+  transition: 1s ease-in-out;
+  transition-delay: 3.2s;
+    animation-duration: 6000ms;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-delay: 1.2s;
+}
+
+.welcome-section p.handwriting{
+  color: white;
+  font-size: 42px;
+  margin: 8px 0;
+}
+.welcome-section .text-welcome-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  z-index: 3;
+}
+.welcome-section .text-welcome-section img.showOff{
+  opacity: 1;
+}
+.welcome-section .text-welcome-section img{
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(20%);
+  transition: 1s ease-in-out;
+  transition-delay: 1s;
+}
+.welcome-section .text-welcome-section button{
+  padding: 10px 24px;
+  margin-top: 12px;
+  background-color: rgba(255, 255, 255, 0.85);
+  opacity: 0;
+  transition: 0.8s;
+}
+@keyframes shake-lentera {
+  0%{
+    transform: rotate(0);
+  }
+  10%{
+    transform: scale(1.05);
+  }
+  25%{
+    transform: rotate(5deg) scale(1.05);
+  }
+  50%{
+    transform: rotate(-5deg) scale(1.05);
+  }
+  75%{
+    transform: rotate(5deg) scale(1.05);
+  }
+  90%{
+    transform: scale(1.05);
+  }
+}
+/* welcome section */
+/* introduce section */
+.introduce-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #2D2B69;
+  position: relative;
+  z-index: 1;
+}
+.introduce-section .overlay{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+.introduce-section .overlay .top-overlay{
+  width: 100%;
+  height: 5px;
+  background-color: #2D2B69;
+  position: absolute;
+  top: -2.5px;
+}
+.introduce-section .overlay .bottom-overlay {
+  width: 100%;
+  height: 5px;
+  background-color: #2D2B69;
+  position: absolute;
+  bottom: -2.5px;
+}
+.introduce-section .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 24px;
+  position: relative;
+  z-index: 3;
+  gap: 8px;
+}
+.introduce-section .container p{
+  text-align: center;
+}
+.introduce-section .container p.handwriting{
+  font-size: 24px;
+  color: white;
+}
+p.handwriting.nonesensial{
+  transform: translateY(30px);
+  transition: 0.8s ease;
+  transition-delay: 0.5s;
+}
+.heading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.line-setting{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 4px 0;
+}
+.line-setting .rec{
+  width: 8px;
+  aspect-ratio: 1 / 1;
+  transform: rotate(45deg);
+}
+.line-setting .line{
+  width: 0;
+  height: 2px;
+  transition: 1.5s ease-in-out;
+}
+.line-setting.blue-line .rec,
+.line-setting.blue-line .line{
+  background-color: rgba(245, 245, 245, 0.671);
+}
+.line-setting.white-line .rec,
+.line-setting.white-line .line {
+  background-color: rgba(255, 255, 255, 0.815);
+}
+.overlay-cloud{
+  position: absolute;
+  z-index: 1;
+  bottom: -72px;
+  width: 100%;
+}
+/* introduce section */
+/* detail-section */
+.detail-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding-top: 72px;
+  background: rgb(109, 116, 207);
+  background: radial-gradient(circle, rgba(109, 116, 207, 1) 30%, rgba(87, 93, 168, 1) 100%);
+}
+.detail-section .maps{
+  width: 100%;
+  margin: 24px 0;
+}
+.detail-section .maps iframe{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+.detail-section .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 40px 48px;
+  position: relative;
+  z-index: 2;
+  padding-top: 45%;
+}
+.detail-section .container p{
+  color: rgba(255, 255, 255, 0.8);
+}
+.detail-section .container p.handwriting{
+  color: white;
+  font-size: 24px;
+}
+.detail-section .container .heading{
+  margin-bottom: 12px;
+}
+.detail-section .container .paragraft{
+  text-indent: 20px;
+  text-align: justify;
+  margin-bottom: 16px;
+}
+.detail-section .container .table{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+.detail-section .container .table p{
+  margin-bottom: 4px;
+}
+.detail-section .container button{
+  padding: 10px 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+.detail-section .container button p{
+  color: #181818;
+}
+.cover p .word{
+  transform: translateY(30px);
+  opacity: 0;
+  transition: 0.8s ease;
+}
+.cover{
+  overflow-y: hidden;
+}
+.background-long-free{
+  position: absolute;
+  width: calc(100% - 48px);
+}
+.masjid-set{
+  width: 100%;
+  position: relative;
+}
+.masjid-set .masjid-putih{
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.masjid-set .masjid-kanan{
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+}
+.masjid-set .masjid-kiri{
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+/* detail-section */
+/* hadist */
+.hadist-section img{
+  width: 100%;
+}
+.hadist-section .container .heading .cover{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* hadist */
+/* COUNTDOWN */
+.countdown-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  flex-direction: column;
+  background-color: #2D2B69;
+  width: 100%;
+}
+.countdown-section .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 2;
+  padding: 40px 24px;
+}
+.countdown-section .container p.handwriting{
+  font-size: 24px;
+  color: white;
+}
+.countdown-section .container .cover-box-countdown{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 24px;
+  width: 100%;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #14134467;
+  border-radius: 8px;
+}
+.countdown-section .container .box-countdown{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 12px;
+}
+.countdown-section .container .box-countdown .item-countdown{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(224, 224, 224, 0.1);
+  flex: 1;
+  aspect-ratio: 1;
+  border-radius: 4px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(245, 245, 245, 0.527);
+}
+.countdown-section .container .box-countdown .item-countdown p{
+  color: rgba(255, 255, 255, 0.8);
+}
+.countdown-section .container .box-countdown .item-countdown p.newyork{
+  font-size: 18px;
+}
+.backImg{
+  background-image: url(img/background.svg);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+/* COUNTDOWN */
+/* RSVP SECTION */
+.rsvp-section{
+  display: flex;
+  padding-top: 72px;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+  background: rgb(109, 116, 207);
+  background: radial-gradient(circle, rgba(109, 116, 207, 1) 30%, rgba(87, 93, 168, 1) 100%);
+}
+.rsvp-section .container{
+  padding: 40px 48px;
+  padding-top: 45%;
+}
+.rsvp-section .heading{
+  margin-bottom: 12px;
+}
+.rsvp-section .heading p{
+  color: rgba(255, 255, 255, 0.781);
+}
+.rsvp-section .heading p{
+  font-size: 24px;
+}
+.rsvp-section .normal-text{
+  text-align: center;
+}
+.rsvp-section form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 32px 0;
+}
+.rsvp-section form input[type=text], .rsvp-section form textarea, .rsvp-section form input[type=number]{
+  width: 100%;
+  padding: 12px 12px;
+  background-color: #545AA1;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: montserrat;
+  color: white;
+}
+.rsvp-section form .box-rsvp{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+}
+.rsvp-section form .box-rsvp .cover{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+.rsvp-section form .box-rsvp .cover label{
+  font-family: montserrat;
+  font-size: 12px;
+  color: whitesmoke;
+}
+.rsvp-section form button{
+  width: 100%;
+  padding: 10px 24px;
+  margin-top: 24px;
+  background-color: #F3D373;
+  color: #2D2B69;
+  border-radius: 2px;
+}
+.rsvp-section .overlay{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+.rsvp-section .overlay .top-overlay{
+  width: 100%;
+  height: 5px;
+  background-color: #2D2B69;
+  position: absolute;
+  top: -2.5px;
+}
+.rsvp-section .overlay .bottom-overlay {
+  width: 100%;
+  height: 5px;
+  background-color: #2D2B69;
+  position: absolute;
+  bottom: -2.5px;
+}
+/* RSVP SECTION */
+/* CLOSSING */
+.clossing{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #2D2B69;
+  position: relative;
+  z-index: 1;
+}
+.clossing .overlay{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+.clossing .overlay .top-overlay{
+  width: 100%;
+  height: 5px;
+  background-color: #2D2B69;
+  position: absolute;
+  top: -2.5px;
+}
+.clossing .overlay .bottom-overlay {
+  width: 100%;
+  height: 5px;
+  background-color: #2D2B69;
+  position: absolute;
+  bottom: -2.5px;
+}
+.clossing .text-clossing-section{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 80px;
+  padding-top: 80px;
+}
+.clossing .text-clossing-section p.handwriting{
+  color: white;
+  font-size: 42px;
+}
+.bedug-cover{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
+  align-items: center;
+}
+.bedug-cover .right-bedug{
+  margin-top: 20%;
+}
+/* CLOSSING */
+/* FOOTER */
+footer{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+footer .container{
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 24px;
+}
+footer .container .logo{
+  margin-bottom: 12px;
+}
+footer .container p{
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin-bottom: 8px;
+}
+footer .container .sosmed{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+footer .container .sosmed a{
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+footer .container .sosmed p{
+  margin-bottom: 0;
+}
+/* FOOTER */
+
