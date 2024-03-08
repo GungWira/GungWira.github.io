@@ -129,7 +129,7 @@ p.normal-text {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #6D74CF;
+  background-color: #375E56;
   position: fixed;
   top: 0;
   left: 0;
@@ -195,7 +195,7 @@ p.normal-text {
   width: 100vw;
   height: 100vh;
   position: fixed;
-  background-color: #2D2B69;
+  background-color: #F5F0EB;
   transition: 0.8s;
   transform: translateY(100%);
 }
@@ -208,8 +208,8 @@ p.normal-text {
   align-items: center;
   height: 100vh;
   width: 100%;
-  background: rgb(109, 116, 207);
-  background: radial-gradient(circle, rgba(109, 116, 207, 1) 30%, rgba(87, 93, 168, 1) 100%);
+  background: rgb(55, 94, 86);
+  background: radial-gradient(circle, rgba(55, 94, 86, 1) 30%, rgba(45, 80, 73, 1) 100%);
   position: relative;
   z-index: 1;
 }
@@ -221,113 +221,139 @@ p.normal-text {
   display: flex;
   opacity: 0;
   transition: 1.5s ease;
-  justify-content: center;
+  align-items: center;
 }
-.welcome-section .overlay .background-long.showOff,
-.welcome-section .overlay .masjid-putih.showOff,
-.welcome-section .overlay .lampu-kanan-1.showOff,
-.welcome-section .overlay .lampu-kanan-2.showOff,
-.welcome-section .overlay .lampu-kiri-1.showOff,
-.welcome-section .overlay .lampu-kiri-2.showOff,
-.welcome-section .text-welcome-section img.showOff{
-  transform: translateY(0);
-}
-.welcome-section .overlay .masjid-kanan.showOff,
-.welcome-section .overlay .masjid-kiri.showOff{
-  transform: translateX(0);
-}
-
-.welcome-section .overlay .background-long{
-  width: calc(100% - 48px);
-  position: absolute;
-  padding-top: 40px;
-  transform: translateY(100%);
-  transition: 2s ease-in-out;
-}
-.welcome-section .overlay .background-path{
+.welcome-section .overlay .star{
   width: 100%;
-  height: 100%;
   position: absolute;
+  opacity: 0;
+  transition: 0.8s ease;
+}
+.welcome-section .overlay .star.showOff{
   opacity: 1;
 }
-.welcome-section .overlay .masjid-putih{
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  transform: translateY(100%);
-  transition: 1s ease-in-out;
-  transition-delay: 1.5s;
+.welcome-section .overlay .awan-left.showOff,
+.welcome-section .overlay .awan-right.showOff, 
+.welcome-section .overlay .masjid-left.showOff,
+.welcome-section .overlay .masjid-right.showOff,
+.welcome-section .overlay .moument-left.showOff,
+.welcome-section .overlay .monument-right.showOff{
+  transform: translateX(0);
 }
-.welcome-section .overlay .masjid-kanan{
+.welcome-section .overlay .lamp-left.showOff,
+.welcome-section .overlay .lamp-right.showOff,
+.welcome-section .overlay .background.showOff{
+  transform: translateY(0);
+}
+.welcome-section .overlay .awan-left{
   width: 50%;
   position: absolute;
-  bottom: 0;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: 1s ease;
+
+}
+.welcome-section .overlay .awan-right{
+  width: 50%;
+  position: absolute;
+  top: 0;
   right: 0;
   transform: translateX(100%);
-  transition: 1s ease-in-out;
-  transition-delay: 1.5s;
+  transition: 1s ease;
 }
-.welcome-section .overlay .masjid-kiri{
+.welcome-section .overlay .lamp-left{
+  width: 18%;
+  top: 0;
+  left: 24px;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: 1s ease;
+  transition-delay: .8s;
+}
+.welcome-section .overlay .lamp-right{
+  width: 18%;
+  top: 0;
+  right: 24px;
+  position: absolute;
+  transform: translateY(-100%);
+  transition: 1s ease;
+  transition-delay: .8s;
+}
+.welcome-section .overlay .masjid-left{
   width: 50%;
   position: absolute;
   bottom: 0;
   left: 0;
   transform: translateX(-100%);
-  transition: 1s ease-in-out;
+  transition: 1s ease;
+  transition-delay: 1s;
+}
+.welcome-section .overlay .masjid-right{
+  width: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+    transform: translateX(100%);
+  transition: 1s ease;
+  transition-delay: 1s;
+}
+.welcome-section .overlay .monument-right{
+  width: 70%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateX(100%);
+  transition: 1s ease;
+  transition-delay: .5s;
+}
+.welcome-section .overlay .moument-left{
+  width: 70%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+    transform: translateX(-100%);
+  transition: 1s ease;
+  transition-delay: .5s;
+}
+.welcome-section .overlay .background{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  transition: 1s ease;
+  transition-delay: 0s;
+}
+.welcome-section .overlay .cloud-left{
+  width: 15%;
+  position: absolute;
+  left: 24px;
+  transform: translateY(100%) translateX(-200%);
+  transition: 1s ease;
+  transition-delay: 1.5s;
+} .welcome-section .overlay .cloud-left.showOff{
+  transform: translateY(100%) translateX(0%);
+}
+.welcome-section .overlay .cloud-right{
+  width: 15%;
+  position: absolute;
+  right: 24px;
+  transform: translateY(-100%) translateX(200%);
+  transition: 1s ease;
   transition-delay: 1.5s;
 }
-.welcome-section .overlay .lampu-kanan-1{
-  width: 10%;
-  position: absolute;
-  right: 20%;
-  transform: translateY(-100%);
-  transition: 1s ease-in-out;
-  transition-delay: 2s;
-    animation-duration: 6000ms;
-  animation-timing-function: ease;
-  animation-iteration-count: infinite;
-}
-.welcome-section .overlay .lampu-kanan-2{
-  width: 15%;
-  position: absolute;
-  right: 5%;
-  transform: translateY(-100%);
-  transition: 1s ease-in-out;
-  transition-delay: 2.5s;
-    animation-duration: 6000ms;
-  animation-timing-function: ease;
-  animation-iteration-count: infinite;
-  animation-delay: 1s;
-}
-.welcome-section .overlay .lampu-kiri-1{
-  width: 10%;
-  position: absolute;
-  left: 20%;
-  transform: translateY(-100%);
-  transition: 1s ease-in-out;
-  transition-delay: 2.8s;
-    animation-duration: 6000ms;
-  animation-timing-function: ease;
-  animation-iteration-count: infinite;
-  animation-delay: .8s;
-}
-.welcome-section .overlay .lampu-kiri-2{
-  width: 15%;
-  position: absolute;
-  left: 5%;
-  transform: translateY(-100%);
-  transition: 1s ease-in-out;
-  transition-delay: 3.2s;
-    animation-duration: 6000ms;
-  animation-timing-function: ease;
-  animation-iteration-count: infinite;
-  animation-delay: 1.2s;
+.welcome-section .overlay .cloud-right.showOff{
+  transform: translateY(-100%) translateX(0%);
 }
 
 .welcome-section p.handwriting{
   color: white;
   font-size: 42px;
   margin: 8px 0;
+}
+p.minor{
+  transform: translateY(30px);
+  transition: 1s;
 }
 .welcome-section .text-welcome-section{
   display: flex;
@@ -344,7 +370,6 @@ p.normal-text {
 .welcome-section .text-welcome-section img{
   margin-bottom: 24px;
   opacity: 0;
-  transform: translateY(20%);
   transition: 1s ease-in-out;
   transition-delay: 1s;
 }
@@ -354,6 +379,9 @@ p.normal-text {
   background-color: rgba(255, 255, 255, 0.85);
   opacity: 0;
   transition: 0.8s;
+}
+.welcome-section .text-welcome-section button p{
+  color: #181818;
 }
 @keyframes shake-lentera {
   0%{
@@ -382,7 +410,7 @@ p.normal-text {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: #2D2B69;
+  background-color: #DBAD46;
   position: relative;
   z-index: 1;
 }
@@ -397,14 +425,14 @@ p.normal-text {
 .introduce-section .overlay .top-overlay{
   width: 100%;
   height: 5px;
-  background-color: #2D2B69;
+  background-color: #DBAD46;
   position: absolute;
   top: -2.5px;
 }
 .introduce-section .overlay .bottom-overlay {
   width: 100%;
   height: 5px;
-  background-color: #2D2B69;
+  background-color: #DBAD46;
   position: absolute;
   bottom: -2.5px;
 }
@@ -466,7 +494,7 @@ p.handwriting.nonesensial{
 .overlay-cloud{
   position: absolute;
   z-index: 1;
-  bottom: -72px;
+  top: 0;
   width: 100%;
 }
 /* introduce section */
@@ -478,8 +506,8 @@ p.handwriting.nonesensial{
   position: relative;
   width: 100%;
   padding-top: 72px;
-  background: rgb(109, 116, 207);
-  background: radial-gradient(circle, rgba(109, 116, 207, 1) 30%, rgba(87, 93, 168, 1) 100%);
+  background: rgb(55, 94, 86);
+  background: radial-gradient(circle, rgba(55, 94, 86, 1) 30%, rgba(45, 80, 73, 1) 100%);
 }
 .detail-section .maps{
   width: 100%;
@@ -495,10 +523,9 @@ p.handwriting.nonesensial{
   justify-content: flex-start;
   align-items: flex-start;
   gap: 8px;
-  padding: 40px 48px;
+  padding: 40px 24px;
   position: relative;
   z-index: 2;
-  padding-top: 45%;
 }
 .detail-section .container p{
   color: rgba(255, 255, 255, 0.8);
@@ -553,24 +580,10 @@ p.handwriting.nonesensial{
   width: 100%;
   position: relative;
 }
-.masjid-set .masjid-putih{
+.masjid-set img{
   width: 100%;
   position: relative;
-  z-index: 1;
-}
-.masjid-set .masjid-kanan{
-  width: 50%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 2;
-}
-.masjid-set .masjid-kiri{
-  width: 50%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
+  bottom: -6px;
 }
 /* detail-section */
 /* hadist */
@@ -588,12 +601,11 @@ p.handwriting.nonesensial{
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
   background-size: cover;
   background-position: center;
   position: relative;
   flex-direction: column;
-  background-color: #2D2B69;
+  background-color: #DBAD46;
   width: 100%;
 }
 .countdown-section .container{
@@ -668,12 +680,11 @@ p.handwriting.nonesensial{
   width: 100%;
   position: relative;
   z-index: 0;
-  background: rgb(109, 116, 207);
-  background: radial-gradient(circle, rgba(109, 116, 207, 1) 30%, rgba(87, 93, 168, 1) 100%);
+  background: rgb(55, 94, 86);
+  background: radial-gradient(circle, rgba(55, 94, 86, 1) 30%, rgba(45, 80, 73, 1) 100%);
 }
 .rsvp-section .container{
   padding: 40px 48px;
-  padding-top: 45%;
 }
 .rsvp-section .heading{
   margin-bottom: 12px;
@@ -696,7 +707,7 @@ p.handwriting.nonesensial{
 .rsvp-section form input[type=text], .rsvp-section form textarea, .rsvp-section form input[type=number]{
   width: 100%;
   padding: 12px 12px;
-  background-color: #545AA1;
+  background-color: #17302B;
   margin-bottom: 12px;
   border-radius: 4px;
   font-size: 14px;
@@ -726,8 +737,8 @@ p.handwriting.nonesensial{
   width: 100%;
   padding: 10px 24px;
   margin-top: 24px;
-  background-color: #F3D373;
-  color: #2D2B69;
+  background-color: #17302B;
+  color: white;
   border-radius: 2px;
 }
 .rsvp-section .overlay{
@@ -741,14 +752,14 @@ p.handwriting.nonesensial{
 .rsvp-section .overlay .top-overlay{
   width: 100%;
   height: 5px;
-  background-color: #2D2B69;
+  background-color: #DBAD46;
   position: absolute;
   top: -2.5px;
 }
 .rsvp-section .overlay .bottom-overlay {
   width: 100%;
   height: 5px;
-  background-color: #2D2B69;
+  background-color: #DBAD46;
   position: absolute;
   bottom: -2.5px;
 }
@@ -758,7 +769,7 @@ p.handwriting.nonesensial{
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #2D2B69;
+  background-color: #203833;
   position: relative;
   z-index: 1;
 }
@@ -773,14 +784,14 @@ p.handwriting.nonesensial{
 .clossing .overlay .top-overlay{
   width: 100%;
   height: 5px;
-  background-color: #2D2B69;
+  background-color: #203833;
   position: absolute;
   top: -2.5px;
 }
 .clossing .overlay .bottom-overlay {
   width: 100%;
   height: 5px;
-  background-color: #2D2B69;
+  background-color: #203833;
   position: absolute;
   bottom: -2.5px;
 }
@@ -800,16 +811,16 @@ p.handwriting.nonesensial{
   color: white;
   font-size: 42px;
 }
-.bedug-cover{
+.lamp-cover{
   position: absolute;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding-top: 40px;
   align-items: center;
+  padding: 0 24px;
 }
-.bedug-cover .right-bedug{
-  margin-top: 20%;
+.lamp-cover img{
+  width: 15%;
 }
 /* CLOSSING */
 /* FOOTER */
